@@ -25,3 +25,12 @@ body {
    height: 50%;
    padding: 0 2rem;
 }
+
+#app_main {
+   height: calc(100vh - 145px);
+   background-color: aquamarine;
+}
+
+#app_footer{
+   height: 60px;
+}
