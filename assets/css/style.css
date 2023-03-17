@@ -61,4 +61,9 @@ body {
 /* FOOTER */
 #app_footer{
    height: 60px;
+   padding: 1.5rem;
+}
+
+.p_foot {
+   font-size: 20px;
 }
