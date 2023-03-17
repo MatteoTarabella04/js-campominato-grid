@@ -14,9 +14,10 @@ con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 
 
 
 /* steps
--richiamo il bottone
--creo l'evento
+-richiamo il bottone e il container
+-creo l'evento per la generazione delle celle
 -aggiungo le celle
+-creo lìevento per cambiare colore alle celle
 */
 
 // richiamo il bottone dal DOM
