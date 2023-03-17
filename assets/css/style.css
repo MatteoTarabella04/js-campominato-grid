@@ -53,6 +53,11 @@ body {
    justify-content: center;
    align-items: center;
 }
+
+/* bg for script */
+.bgBlue {
+   background-color: rgb(31, 105, 202);
+}
 /* FOOTER */
 #app_footer{
    height: 60px;

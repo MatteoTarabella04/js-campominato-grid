@@ -26,11 +26,25 @@ const playButtonElement = document.getElementById('play_btn');
 const containerElement = document.querySelector('.container');
 
 // creo l'evento per il bottone che genera le celle
-playButtonElement.addEventListener('click', function(){
+playButtonElement.addEventListener('click', function () {
 
-   for (let i = 1; i <= 100; i++){
+   for (let i = 1; i <= 100; i++) {
       const markupEl = `<div class="cell">${i}</div>`
 
-      containerElement.insertAdjacentHTML('beforeend', markupEl);
+      /* containerElement.insertAdjacentHTML('beforeend', markupEl); */
+      containerElement.innerHTML += markupEl;
    }
+
+   // seleziono tutti gli elementi con calsse "cell"
+   const cellEl = document.querySelectorAll('.cell');
+
+   for (let i = 0; i < cellEl.length; i++) {
+
+      const cell = cellEl[i];
+
+      cell.addEventListener('click', function (e) {
+         this.classList.add('bgBlue');
+      });
+   }
+
 })
