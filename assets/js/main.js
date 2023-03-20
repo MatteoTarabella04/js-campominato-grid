@@ -20,8 +20,9 @@ con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 
 -creo lìevento per cambiare colore alle celle
 */
 
-// richiamo il bottone dal DOM
+// richiamo il bottone e la select dei livelli dal DOM
 const playButtonElement = document.getElementById('play_btn');
+const levelSelectEl = document.getElementById('level');
 
 // richiamo il contenitore dove andranno aggiunte le celle
 const containerElement = document.querySelector('.container');
@@ -29,14 +30,11 @@ const containerElement = document.querySelector('.container');
 // creo l'evento per il bottone che genera le celle
 playButtonElement.addEventListener('click', function () {
 
-   containerElement.innerHTML = '';
+   //prelevo il numero di celle
+   const cellsNumber = setLEvelCells(levelSelectEl.value);
 
-   for (let i = 1; i <= 100; i++) {
-      const markupEl = `<div class="cell">${i}</div>`
-
-      /* containerElement.insertAdjacentHTML('beforeend', markupEl); */
-      containerElement.innerHTML += markupEl;
-   }
+   // creo le celle
+   generateCells(cellsNumber, containerElement);
 
    // seleziono tutti gli elementi con calsse "cell"
    const cellEl = document.querySelectorAll('.cell');
@@ -52,3 +50,42 @@ playButtonElement.addEventListener('click', function () {
    }
 
 })
+
+
+/* FUNCTIONS */
+// funzione che preleva il numero delle celle dal livello selezionato
+function setLEvelCells(selectedLevel) {
+   let cellNum = 100;
+   switch (selectedLevel) {
+      case "medium":
+         cellNum = 81
+      break;
+      case "hard":
+         cellNum = 49
+      break;
+   }
+
+   return cellNum;
+}
+
+// funzione che genera le celle in base al livello
+function generateCells(totCells, container){
+
+   // setto il container vuoto
+   container.innerHTML = "";
+
+   const cellsInARow = Math.sqrt(totCells);
+
+   for (let i = 1; i <= totCells; i++) {
+      //const markupEl = `<div class="cell">${i}</div>`
+      const markupEl = document.createElement('div');
+      markupEl.classList.add('cell');
+
+      // imposto il nuumero di celle modificando lo stile
+      markupEl.style.width = `calc(100% / ${cellsInARow})`;
+      markupEl.innerHTML  = i;
+
+      containerElement.insertAdjacentElement('beforeend', markupEl);
+      //containerElement.innerHTML += markupEl;
+   }
+}
