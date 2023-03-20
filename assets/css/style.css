@@ -34,9 +34,9 @@ body {
 .container {
    max-width: 1200px;
    height: 100%;
-   width: 50%;
+   width: 40%;
    margin: auto;
-   padding: 4rem;
+   padding: 1rem 0;
 
    /* felx */
    display: flex;

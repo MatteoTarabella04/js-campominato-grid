@@ -45,6 +45,7 @@ playButtonElement.addEventListener('click', function () {
 
       cell.addEventListener('click', function (e) {
          this.classList.add('bgBlue');
+         console.log(Number(this.innerText));
       });
    }
 
