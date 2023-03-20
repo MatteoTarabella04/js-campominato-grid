@@ -29,6 +29,8 @@ const containerElement = document.querySelector('.container');
 // creo l'evento per il bottone che genera le celle
 playButtonElement.addEventListener('click', function () {
 
+   containerElement.innerHTML = '';
+
    for (let i = 1; i <= 100; i++) {
       const markupEl = `<div class="cell">${i}</div>`
 
@@ -44,7 +46,7 @@ playButtonElement.addEventListener('click', function () {
       const cell = cellEl[i];
 
       cell.addEventListener('click', function (e) {
-         this.classList.add('bgBlue');
+         this.classList.add('active');
          console.log(Number(this.innerText));
       });
    }
